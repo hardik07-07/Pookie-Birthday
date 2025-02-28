@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pookie's Mystery Proposal 🎁❤️</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fde2e4;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            padding: 10px;
+            margin-top: 10px;
+            width: 80%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #ff477e;
+            color: white;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Hey Pookie! Ready for a mystery? 🧐💖</h2>
+        <p id="question">Solve this riddle to move ahead:</p>
+        <p id="riddle">"Meri duniya me ek naam sabse special hai, wo naam jispar dil har baar mushkurata hai. Batao wo kaun hai?"</p>
+        <input type="text" id="answer" placeholder="Your answer here...">
+        <button onclick="checkAnswer()">Submit</button>
+        <p id="response" class="hidden"></p>
+    </div>
+
+    <script>
+        let step = 1;
+        function checkAnswer() {
+            let answer = document.getElementById("answer").value.toLowerCase().trim();
+            let response = document.getElementById("response");
+            let question = document.getElementById("question");
+            let riddle = document.getElementById("riddle");
+            
+            if (step === 1 && answer === "pookie") {
+                response.innerHTML = "Correct! Next riddle coming up...";
+                riddle.innerHTML = "\"Ek aisi cheez jo bina mile bhi ho sakti hai, jo roz badhti hai, kabhi kam nahi hoti, batao kya hai?\"";
+                step++;
+            } else if (step === 2 && (answer === "pyaar" || answer === "love")) {
+                response.innerHTML = "Amazing! One last step...";
+                riddle.innerHTML = "\"Ek chhota sa update chahiye, dosti se ek aur kadam aage. Kya tum ‘Humsafar’ version install karogi?\"";
+                step++;
+            } else if (step === 3 && (answer === "haan" || answer === "yes")) {
+                response.innerHTML = "🎉 Congratulations, Pookie! Tumne saare riddles solve kar liye! 🎉";
+                riddle.innerHTML = "💌 Final Message: \"Pookie, tum sirf ek dost nahi, ek feeling ban chuki ho… Kya tum ‘Dost se Humsafar’ version install karogi? ❤️\"";
+                step++;
+            } else {
+                response.innerHTML = "Oops! Try again, Pookie! 🤔💖";
+            }
+            response.classList.remove("hidden");
+            document.getElementById("answer").value = "";
+        }
+    </script>
+</body>
+</html>
